@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title>Excersise 08</title>
+	
+	<script>
+	
+		function isLeapYear(year){
+			var checkLeap = Boolean ((( year % 4 == 0 ) && ( year % 100 != 0 )) || ( year % 400 == 0 ));
+			/*document.getElementById("check").innerHTML = checkLeap;*/
+			if( checkLeap == true ){
+				/*document.getElementById("show").innerHTML = "Ten rok jest przestępny";*/
+				return true;
+			}
+			else{
+				/*document.getElementById("show").innerHTML = "Ten rok nie jest przestępny";*/
+				return false;
+			}
+		};
+		
+		function whenChristmas(d){
+			var firstDate = [d];
+			var yearGiven = [];
+			yearGiven = convert.firstDate(0, 3);
+			var c = new Date();
+			/*var y = d.getDate();*/
+			alert(yearGiven);
+			c.setFullYear(y, 12, 25);
+		}
+	</script>
+	
+</head>
+
+<body>
+	<p>Calculate days left to the next Christmas</p>
+	<p>Podaj dzisiejszą datę : <input type="date" id="dateInput"></p>
+	<p><input type="button" id="check" value="Calculate" onclick="whenChristmas(document.getElementById('dateInput').value)"></p>
+</body>
+
+</html>

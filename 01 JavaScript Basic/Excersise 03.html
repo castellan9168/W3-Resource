@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+	<title>Excersie 3</title>
+	
+	<script>
+		function currentDate() {
+			var d = new Date();
+			var day, month, year;
+			var dayCheck, monthCheck;
+			year = d.getFullYear();
+			dayCheck = d.getDate().toString().length;
+			monthCheck = d.getMonth().toString().length;
+			if (dayCheck == 1) {
+				day = "0" + d.getDate().toString();
+			}
+			else {
+				day = d.getDate();
+			};
+			if (monthCheck == 1) {
+				month = "0" + (d.getMonth() + 1);
+			}
+			else {
+				month = (d.getMonth() + 1);
+			};
+			/* document.getElementById("check").innerHTML = year; */
+			document.getElementById("show").innerHTML = month + "-" + day + "-" + year
+			+ ", " + month + "/" + day + "/" + year;
+		}
+	</script>
+
+</head>
+
+<body>
+
+	<p>Excersie 3</p>
+	<input type="button" onclick="currentDate()" value="Pokaż datę"></input>
+	<p id="check"></p>
+	<p id="show"></p>
+
+</body>
+
+</html>

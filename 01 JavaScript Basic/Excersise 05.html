@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Excersise 04</title>
+	
+	<script>
+		
+		function intervalChange(a){
+			var n, steps, word;
+			word = a.split("");
+			word.push(" ");
+			steps = word.length;
+			n = 0;
+			function shift(b){
+				b.unshift(b.pop());
+				var wordMerged = b.join("");
+				document.getElementById("show").innerHTML = wordMerged;
+				n = n + 1;
+				if ( n == steps ){
+					clearInterval(myVar);
+				}
+			}
+			var myVar = setInterval(function(){shift(word)}, 100);
+		};
+		
+	</script>
+	
+</head>
+
+<body>
+	<p>Wprowadź słowo które chcesz "obrócić" : <input type="text" id="rotateTxt"></p>
+	<p><input type="button" id="startBtn" value="Obróć" onclick="intervalChange(document.getElementById('rotateTxt').value)"></p>
+	<p id="show"></p>
+	<p id="count"></p>
+</body>
+
+</html>

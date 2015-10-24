@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+
+<html>
+	<head>
+		<script>
+			function showDate() {
+				var d = new Date();
+				var day;
+				var minutes;
+				var seconds;
+				var minutesCheck = d.getMinutes().toString().length;
+				var secondsCheck = d.getSeconds().toString().length;
+				switch (d.getDay()) {
+					case 0:
+						day = "Sunday";
+						break;
+					case 1:
+						day = "Monday";
+						break;
+					case 2:
+						day = "Tuesday";
+						break;
+					case 3:
+						day = "Wednesday";
+						break;
+					case 4:
+						day = "Thursday";
+						break;
+					case 5:
+						day = "Friday";
+						break;
+					case 6:
+						day = "Saturday";
+						break;
+				};
+				if ( minutesCheck == 1 ){
+					minutes = "0" + d.getMinutes().toString();
+				} else {
+					minutes = d.getMinutes();
+				};
+				if ( secondsCheck == 1){
+					seconds = "0" + d.getSeconds().toString();
+				} else {
+					seconds = d.getSeconds();
+				};
+				document.getElementById("show").innerHTML = "Today is : " + day 
+	            + "<br>" + "Current time is "  + d.getHours() + " PM" + " : " + minutes
+				+ " : " + d.getSeconds();
+			}
+		</script>
+	</head>
+	<body>
+		
+		<input onclick="showDate()" type="button" value="Pokaż datę"></input>
+		<p id="show"></p>
+		<p>
+				</p>
+	</body>
+</html>

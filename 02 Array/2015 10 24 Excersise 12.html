@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang = "en">
+   
+   <head>
+      <meta charset = "utf-8">
+      <meta http-equiv = "X-UA-Compatible" content = "IE = edge">
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+      
+      <title>Excersise 12</title>
+      
+      <!-- Bootstrap -->
+      <link href = "..\css\bootstrap.css" rel = "stylesheet">
+	  <link href = "..\css\animate.css" rel = "stylesheet">
+      
+      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      
+      <!--[if lt IE 9]>
+      <script src = "https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src = "https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+	  
+	  <script>
+		"use strict"
+		
+		function sumAndProduct(nums){
+			var arr = nums.split(","),
+				sum = 0,					// to calculate sum of array's elements
+				product = 1,				// to calculate product of array's elements
+				showPanel = document.getElementById("solution"),
+				i;
+			for (i = 0; i < arr.length; i++){
+				arr[i] = parseInt(arr[i]);
+				sum += arr[i];
+				product *= arr[i];
+			}
+			showPanel.classList.remove('hidden');
+			showPanel.classList.add('animated');
+			showPanel.classList.add('fadeIn');
+			document.getElementById("result").innerHTML = "The sum of array's elements equals " + sum + ", while product equals " + product;
+		}
+		
+		function closePanel(){
+			document.getElementById("solution").classList.add('hidden');
+		}
+		
+	  </script>
+     
+   </head>
+   
+   <body>
+      <div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 page-header animated fadeIn">
+				<h1>Arrays <small>Excersise 12</small></h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="panel panel-info animated fadeIn">
+					<div class="panel-heading">
+						<h4>Explanation</h4>
+					</div>
+					<div class="panel-body">
+						<p>The program computes the sum and product of an array of integers.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+				<div class="panel panel-default animated fadeIn">
+					<div class="panel-heading">
+						<h4>Define vector</h4>
+					</div>
+					<div class="panel-body">
+						<p>Please specify the numeric elements of array separated by the comma(e.g. "1,2,3"):</p>
+						<input type="string" class="form-control" id="arrNums">
+					</div>
+					<div class="panel-footer" align="right">
+						<button class="btn btn-primary" onclick="sumAndProduct(document.getElementById('arrNums').value)">Submit</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 hidden" id="solution">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4>Solution</h4>
+					</div>
+					<div class="panel-body">
+						<div class="well">
+							<p id="result"></p>
+						</div>
+					</div>
+					<div class="panel-footer" align="right">
+						<button class="btn btn-default" onclick="closePanel()">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	  </div>
+      
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src = "../js/bootstrap.min.js"></script>
+      
+   </body>
+</html>

@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+	<title>Excersie 07</title>
+	
+	<script>
+		
+		function checkIfSunday(){
+			var year1 = 2014;
+			var year2 = 2050;
+			var firstDay = new Date();
+			var lista =""
+			for (year1; year1 <= year2; year1++){
+				firstDay.setFullYear(year1, 0, 1);
+				if( firstDay.getDay() == 0){
+					lista += "W roku " + year1 + " 1 Stycznia to niedziela.<br>";
+				}
+				else {
+					lista += "W roku " + year1 + " 1 Stycznia jest innym dniem tygodnia.<br>";
+				};
+			};
+			document.getElementById("test").innerHTML = lista;
+		};
+		
+	</script>
+	
+</head>
+
+<body>
+	<p>Program sprawdzi w którym roku pomiędzy 2014r. a 2050r. 1 stycznia jest niedzielą.</p>
+	<p><input type="button" id="check" value="Sprawdź" onclick="checkIfSunday()"></p>
+	<p id="test"></p>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang = "en">
+   
+   <head>
+      <meta charset = "utf-8">
+      <meta http-equiv = "X-UA-Compatible" content = "IE = edge">
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+      
+      <title>Excersise 11</title>
+      
+      <!-- Bootstrap -->
+      <link href = "..\css\bootstrap.css" rel = "stylesheet">
+      
+      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      
+      <!--[if lt IE 9]>
+      <script src = "https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src = "https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+	  
+	  <script>
+		"use strict"
+		
+		function squaresNumVec(arr){
+			
+			var vector = arr.split(","),
+				vectorTrans = [],
+				squaresSum = 0,
+				solution = document.getElementById("solution"),
+				i;
+			solution.classList.remove("hidden");			// here I show the panel with calculated solution
+			for (i = 0; i < vector.length; i++){
+				vector[i] = parseInt(vector[i]); 			// here I change the array's element type to integer
+				var temp = [vector[i]]; 					// temporary array to be pushed to transposed vector
+				vectorTrans.push(temp);						// here I push element from temp array to obtain transposed vector
+				squaresSum += vector[i] * vectorTrans[i];
+				console.log(squaresSum);
+			}
+			document.getElementById("result").innerHTML = "The sum of squares of a numeric vector " + vector
+															+ " and it's transposition " + vectorTrans + " equals = "
+															+  squaresSum;
+		}
+		
+		function close(){
+			 var hide = document.GetElementById("solution");
+			 hide.classList.toggle("hidden");
+		}
+	  </script>
+      
+   </head>
+   
+   <body>
+      <div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 page-header">
+				<h1>Arrays <small>Excersise 11</small></h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<h4>Explanation</h4>
+					</div>
+					<div class="panel-body">
+						<p>The program finds the sum of squares of a numeric vector.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4>Define vector</h4>
+					</div>
+					<div class="panel-body">
+						<p>Please specify the numeric elements of vector:</p>
+						<input type="string" class="form-control" id="vecNums">
+					</div>
+					<div class="panel-footer" align="right">
+						<button class="btn btn-primary" onclick="squaresNumVec(document.getElementById('vecNums').value)">Submit</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 hidden" id="solution">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4>Solution</h4>
+					</div>
+					<div class="panel-body">
+						<div class="well">
+							<p id="result"></p>
+						</div>
+					</div>
+					<div class="panel-footer" align="right">
+						<button class="btn btn-default" onclick="close()">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	  </div>
+      
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src = "../js/bootstrap.min.js"></script>
+      
+   </body>
+</html>

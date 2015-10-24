@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+	<!-- Write a JavaScript program where the program takes a random integer between 1 to 10,
+	the user is then prompted to input a guess number. If the user input matches with guess number,
+	the program will display a message "Good Work" otherwise display a message "Not matched" -->
+	
+	<title>Excersise 08</title>
+
+		
+	<script>
+		
+		var x = Math.floor((Math.random() * 10) + 1);
+		document.getElementById("number").innerHTML = x;
+		
+		function compare(myNum){
+			var y = parseInt(myNum);
+			if (y == x){
+				document.getElementById("hint").innerHTML = "Gratulacje! Zgadłeś liczbę " + y;
+			}
+			else {
+				document.getElementById("hint").innerHTML = "Zgaduj dalej.";
+			};
+			/*alert(x);*/
+		};
+		
+	</script>
+	
+</head>
+
+<body>
+	<p>Zgadnij liczbę od 1 do 10: <input type="number" id="liczba" min="1" max="10"></p>
+	<p><input type="button" id="check" value="Sprawdź" onclick="compare(document.getElementById('liczba').value)"></p>
+	<p id="hint"></p>
+	<p id="number"></p>
+</body>
+
+</html>

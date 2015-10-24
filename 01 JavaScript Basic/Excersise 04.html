@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+	<title>Excersie 4</title>
+	
+	<script>
+	
+		function triangleValidate(a,b,c){
+			var firstCond, secondCond, thirdCond;
+			firstCond = Boolean((a + b) > c);
+			secondCond = Boolean((b + c) > a);
+			thirdCond = Boolean((c + a) > b);
+			/*alert(a.toString() + b.toString() + c.toString());*/
+			/*alert(firstCond.toString() +  secondCond.toString() + thirdCond.toString() );*/
+			if (firstCond == true && secondCond == true && thirdCond == true){
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		
+		function areaTriangle(a, b, c) {
+			var sideA = parseInt(a);
+			var sideB = parseInt(b);
+			var sideC = parseInt(c);
+			var check = triangleValidate(sideA, sideB, sideC);
+			if (check == true){
+				var field;
+				var p = ( sideA + sideB + sideC ) * 0.5;
+				field = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+				alert ("Pole trójkąta = " + field.toString());
+			}
+			else{
+				alert("Taki trójkąt nie istnieje");
+			};
+			return;
+		}
+		
+	</script>
+	
+</head>
+
+<body>
+
+	<p>Podaj długość pierwszego boku trójkąta  <input type="number" id="bokA" name="bokA" min="1" max="100"></p>
+	<p>Podaj długość drugiego boku trójkąta  <input type="number" id="bokB" name="bokB" min="1" max="100"></p>
+	<p>Podaj długość drugiego boku trójkąta  <input type="number" id="bokC" name="bokC" min="1" max="100"></p>
+	<p><input type="button" id="calcArea" value="Oblicz" onclick="areaTriangle(document.getElementById('bokA').value, document.getElementById('bokB').value, document.getElementById('bokC').value)"></p>
+	<p id="check"></p>
+	
+</body>
+
+</html>
