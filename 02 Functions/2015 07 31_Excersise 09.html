@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Excersise 09</title>
+	
+	<!-- Tego przykładu za bardzo nie rozumiem -->
+	
+	<script>
+	
+		function checkType(x){
+			document.getElementById("result").innerHTML = typeof x;
+			return typeof x;
+		}
+	
+	</script>
+
+</head>
+<body>
+
+	<p>The program returns type of given variable</p>
+	<p>Please enter your variable:<input type="text" id="check"></p>
+	<p><input type="button" value="Check" onclick="checkType(document.getElementById('check').value)"></p>
+	<p id="result"></p>
+
+</body>
+</html>

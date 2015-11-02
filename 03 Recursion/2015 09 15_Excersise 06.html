@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Excersise 06</title>
+	
+	<!-- Write a JavaScript program to get the first n Fibonacci numbers. -->
+	<!-- Coś słabo mi idzie ta rekursja z tablicą -->
+	
+</head>
+<body>
+	
+	<p>The program gets the first n Fibonacci numbers</p>
+	<p>Please open the JavaScript console to see the solution</p>
+	<p></p>
+	<p></p>
+	
+</body>
+<script>
+	"use strict"
+	
+	function fibonacci(n){
+		if (n == 1){
+			return 0;
+		}
+		else if (n == 2){
+			return 1;
+		}
+		else {
+			return fibonacci(n - 2) + fibonacci(n - 1);
+		}
+	}
+	
+	function fibonacciArr(n){
+		if (n == 1){
+			return [0];
+		}
+		else if (n == 2){
+			return [0,1];
+		}
+		else{
+			var s = fibonacciArr(n - 1);
+			s.push(s[s.length - 1] + s[s.length - 2]);
+			return s;
+		}
+	}
+	
+	console.log(fibonacciArr(8));
+</script>
+</html>

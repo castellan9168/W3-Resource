@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	
+	<title>Excersise 10</title>
+	
+	<script>
+		
+		function multiply(a, b){
+			
+			var result = a * b;
+			document.getElementById("wynik").innerHTML = "Wynik mnożenia: " + result;
+		};
+		
+		function divide(a, b){
+			var result = a / b;
+			document.getElementById("wynik").innerHTML = "Wynik dzielenia: " + result;
+		};
+		
+	</script>
+	
+</head>
+
+<body>
+	<p>Oblicz iloczyn i iloraz dwóch liczb.</p>
+	<p>Pierwsza liczba: <input type="number" id="first"></p>
+	<p>Druga liczba: <input type="number" id="second"></p>
+	<p><input type="button" value="Pomnóż" onclick="multiply(document.getElementById('first').value, document.getElementById('second').value)">
+	<input type="button" value="Podziel" onclick="divide(document.getElementById('first').value, document.getElementById('second').value)"></p>
+	<p id="wynik"></p>
+</body>
+
+</html>

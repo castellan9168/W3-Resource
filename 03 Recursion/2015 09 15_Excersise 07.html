@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Excersise 07</title>
+	
+	<!-- Write a JavaScript program to check whether a number is even or not. -->
+	<!-- Dziwny ten przykład, ale do ogarnięcia -->
+
+</head>
+<body>
+
+	<p>The program checks whether a number is even or not.</p>
+	<p>Please open the JavaScript console to see the solution.</p>
+
+</body>
+<script>
+	"use strict"
+	
+	function checkEven(n){
+		if (n == 1){
+			return "The number is odd";
+		}
+		else if (n == 2){
+			return "The number is even ";
+		}
+		else {
+			return checkEven(n - 2);
+		}
+	}
+	
+	console.log(checkEven(15));
+	
+</script>
+</html>

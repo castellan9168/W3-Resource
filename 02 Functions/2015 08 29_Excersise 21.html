@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Excersise 21</title>
+	
+	<!-- Write a JavaScript function to get all possible subset with a fixed length
+	(for example 2) combinations in an array -->
+	
+	<!-- Niby zrobiłem, ale jestem ciekaw czy jest bardziej optymalny sposób na to.
+		http://algorithms.tutorialhorizon.com/print-all-combinations-of-subset-of-size-k-from-given-array/ 
+	-->
+	
+	<script>
+		"use strict"
+		
+		function subset(arr, k){
+			var n = parseInt(k), list = arr.split(","), combList = [], result = [];
+			/* This loop removes repeating elements of array */
+			for (var i = 0; i < list.length; i++){
+				var container = list[i];
+				for (var j = i + 1; j < list.length; j++){
+					if (list[j] == container){
+						list.splice(j,1);
+					}
+				}
+			}
+			/* This loop finds combination of specified length "n" */
+			if (n == 1){
+				console.log(list);
+			}
+			else{
+				for (var i = 0; i < list.length; i++){
+					var currentLength = combList.length;
+					for (var j = 0; j < currentLength; j++){
+						combList.push(list[i] + combList[j])
+					}
+					combList.push(list[i]);
+				}
+				console.log("Kombinacje: " + combList);
+				for (var i = 0; i < combList.length; i++){
+					if (combList[i].length == n){
+						result.push(combList[i]);
+					}
+				}
+				console.log("O długości " + n +": " + result);
+			}
+		}
+	
+	</script>
+
+</head>
+<body>
+
+	<p>The program gets all possible element combinations os spiecified length from a given list.</p>
+	<p>Please enter you elements list (eg."1, 2, 3"): <Input type="text" id="set"></p>
+	<p>Please enter the subset length: <input type="number" id="length"></p>
+	<p><input type="button" value="Generate" onclick="subset(document.getElementById('set').value,
+	document.getElementById('length').value)"></p>
+	<p id="result"></p>
+
+</body>
+</html>

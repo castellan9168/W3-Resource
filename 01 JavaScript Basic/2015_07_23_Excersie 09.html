@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title>Excersise 09</title>
+	
+	<script>
+		function isLeapYear(){
+			var x=  
+			x = (year % 100 === 0) ? (year % 400 === 0) : (year % 4 === 0);  
+			if (x == false){
+			}
+		};
+		
+		function daysToChrismtas(x){
+			var convertDate = x.split("-");
+			var year = parseInt(convertDate[0]);
+			var month = parseInt(convertDate[1]);
+			var day = parseInt(convertDate[2]);
+			var dayCurrent = new Date(year, (month - 1), day);
+			var dayChristmas = new Date(year, 11, 25);
+			var oneDay = 1000 * 60 * 60 * 24;
+			var daysCount = Math.floor((dayChristmas - dayCurrent) / oneDay);
+			document.getElementById("wynik").innerHTML = "Do świąt Bożego Narodzenia zostało " + daysCount + " dni." 
+		};
+	</script>
+
+</head>
+<body>
+	<p>Program oblicza liczbę dni do najbliższych świąt</p>
+	<p>Podaj datę <input type="date" id="day"></p>
+	<p>Oblicz liczbę dni do najbliższych świąt:
+	   <input type="button" value="Oblicz" onclick="daysToChrismtas(document.getElementById('day').value)"></p>
+	<p id="wynik"></p>
+
+</body>
+
+</html>

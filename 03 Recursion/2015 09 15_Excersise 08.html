@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Excersise 08</title>
+	
+	<!-- Write a JavaScript program for binary search. -->
+	
+</head>
+<body>
+
+	<p>The program performs binary search on the given array and finds the number "n".</p>
+	<p>Please open the JavaScript console to see the solution</p>
+	
+</body>
+<script>
+	"use strict"
+	
+	function binarySearch(sortedValues, n){
+		var half = Math.floor(sortedValues.length / 2);
+		if(n == sortedValues[0]){
+			return sortedValues[0];
+		}
+		else if(n == sortedValues[sortedValues.length - 1]){
+			return sortedValues[sortedValues.length - 1];
+		}
+		else if(n == sortedValues[half]){
+			return half;
+		}
+		else if(n > sortedValues[half]){
+			return binarySearch(sortedValues.slice(half, sortedValues.length - 1), n);
+		}
+		else{
+			return binarySearch(sortedValues.slice(0, half), n);
+		}
+	};
+	
+	var arr = [0,1,2,3,4,5,6,7];
+	
+	console.log( binarySearch(arr, 3) );
+	
+</script>
+</html>

@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Excersise 06</title>
+	
+	<script>
+		
+		function findLongest(x){
+			var t = x.split(" ");
+			var length = [];
+			var answer = t[0];
+			for (i = 0; i < t.length; i++){
+				length[i] = t[i].length;
+				if(length[i] > length[i - 1]){
+					answer = t[i];
+				}
+			}
+			document.getElementById("result").innerHTML = "The longest word in entered text is '" + answer + "'."
+		}
+		
+	</script>
+	
+</head>
+<body>
+	<p>The program finds the longest word within the text.</p>
+	<p>Please enter your text: <input type="text" id="longest"></p>
+	<p><input type="button" value="Find" onclick="findLongest(document.getElementById('longest').value)"></p>
+	<p id="result"></p>
+</body>
+</html>

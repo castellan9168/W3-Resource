@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Excersise 01</title>
+	
+	<script>
+		
+		function palindromeCheck(x) {
+			var word = x.split("");
+			var compare = x.split("").reverse();
+			var length = word.push();
+			var palindrome;
+			for (i = 0; i < Math.floor(length / 2); i++){
+				if ( word[i] == compare[i]){
+					palindrome = true;
+				}			
+				else {
+					palindrome = false;
+				}
+			};
+			if (palindrome == true){
+				document.getElementById("result").innerHTML = "Word: " + x + " is a palindrome.";
+			}
+			else {
+				document.getElementById("result").innerHTML = "Word: " + x + " is not a palindrome.";
+			};
+		}
+		
+	</script>
+
+</head>
+<body>
+
+	<p>The program checks whether a given word is a palindrome or not.</p>
+	<p>Write the word that you would like to check: <input type="text" id="check">
+	<p><input type="button" value="Check" onclick="palindromeCheck(document.getElementById('check').value)"></p>
+	<p id="result"></p>
+
+</body>
+
+</html>

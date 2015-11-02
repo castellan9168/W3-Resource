@@ -1,0 +1,89 @@
+<div id="Bootstrap">
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Excersise 08</title>
+		
+		<!-- Nie mam póki co na to pomysłu. Dodawanie kwadratów cyfr danej liczby wydaje się zachowywać
+		nieprzewidywalnie. Trzeba o tym poczytać na wikipedii-->
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/bootstrap-theme.css" rel="stylesheet">
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media 
+		 queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page 
+		 via file:// -->
+		<!--[if lt IE 9]>
+		 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/
+			html5shiv.js"></script>
+		 <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/
+			respond.min.js"></script>
+		<![endif]-->
+		
+		<script>
+			"use strict"
+			
+			function sumDigits(num, sum){
+				if (num == 0){
+					return sum;
+				}
+				else {
+					var sum = sum + Math.pow(num % 10, 2); // recursive variable to keep the digits sum
+					num = Math.floor(num / 10); // remove the last digit from the number
+					return sumDigits(num, sum);
+				} 
+			}
+			
+			function happyNumbers(){
+				console.log("Obecna!");
+				var happies = [], // array to contain happy numbers
+					i = 1;
+				while (happies.length < 5) {
+					var nums = String(i); // split the number inot digits
+					nums.split("");
+					for (var j = 0; j < nums.length; j++){
+						happies.push(i);
+					}
+					i += 1;
+					console.log(i + "  " + happies);
+				}
+			}
+			
+			console.log(sumDigits(123, 0));
+			
+		</script>
+		
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<h4 class="text-primary"><small>Conditional statements and loops</small> Excersise 08</h4>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<p>The program finds the first 5 "happy numbers".</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4">
+					<button type="button" class="btn btn-default" onclick="happyNumbers()">Run</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12" id="result">
+				</div>
+			</div>
+		</div>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://code.jquery.com/jquery.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files 
+			as needed -->
+		<script src="js/bootstrap.min.js"></script>
+	</body>
+</html>
+</div>

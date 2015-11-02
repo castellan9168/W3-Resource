@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Excersise 15</title>
+	
+	<script>
+		
+		function exponent(b,n){
+			var result = Math.pow(b,n);
+			document.getElementById("result").innerHTML = "The result of <em>" + b + "<sup>" + n + "</sup></em> = " + result;
+		}
+		
+	</script>
+
+</head>
+<body>
+
+	<p>The program calculates the <em>b<sup>n</sup></em> where <em>n</em> is the exponent anb <em>b</em> is the basis.</p>
+	<p>Please enter the basis <em>b</em>: <input type="number" id="bas"></p>
+	<p>Please enter the exponent <em>n</em>: <input type="number" id="exp"></p>
+	<p><input type="button" value="Calculate" onclick="exponent(document.getElementById('bas').value,
+	document.getElementById('exp').value)"></p>
+	<p id="result"></p>
+	
+</body>
+</html>

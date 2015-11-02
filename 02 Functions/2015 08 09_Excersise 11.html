@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Excersisie 11</title>
+	
+	<!-- Żeby to jeszcze fajniej działało, to można by zrobić taką funkcję, która pozbywałaby się zbublowanych liczb-->
+	
+	<script>
+		
+		function almostHighLow(x){
+			var numbers = new Array(x);
+			for (i = 0; i < x; i++){
+				numbers[i] = Math.floor(Math.random() * 100);
+			}
+			numbers.sort(function(a, b){return a - b});
+			document.getElementById("set").innerHTML = "Your set of numbers: " + numbers;
+			document.getElementById("result").innerHTML = "The second lowest number in your set is " + numbers[1]
+			+ ", and the second highest number in your set is " + numbers[x - 2];
+		}
+		
+	</script>
+	
+</head>
+<body>
+
+	<p>The finds the second lowest and second greatest number in set of numbers.</p>
+	<p>Please enter the size of set of numbers (ranging from 5 to 10) <input type="number" id="length"></p>
+	<p><input type="button" value="Run" onclick="almostHighLow(document.getElementById('length').value)"></p>
+	<p id="set"></p>
+	<p id="result"></p>
+
+</body>
+</html>

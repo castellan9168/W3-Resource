@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Excersise 17</title>
+	
+	<!-- Write a JavaScript function to  get the number of occurrences of each letter in specified string. -->
+	<!--
+		Moje rozwiązanie jest bardzo długie. W przykładowym rozwiązaniu gość rozwiązał jakoś ten problem regExpem,
+		ale nie będę się w to teraz zagłębiał. Jak będzie więcej czasu to się mogę za to zabrać.
+	-->
+	
+	<script>
+	
+		function countLetter(x){
+			var text = x.split("");
+			var container;
+			var unique = [];
+			var count = [];
+			var txt = "";
+			for(i = 0; i < text.length; i++){
+				/* This loop removes spaces from the string*/
+				if(text[i] == " "){
+					text.splice(i,1);
+				}
+			}
+			console.log("Letters without spaces: " + text);
+			for(i = 0; i < text.length; i++){
+				/* This loop extracts unique letters from the string */
+				if(unique.indexOf(text[i]) == -1){
+					unique.push(text[i]);
+				}
+			}
+			console.log("Unique letters in text: " + unique);
+			for(i = 0; i < unique.length; i++){
+				/* This loops counts number of occurences of each unique letter */
+				var counter = 0;
+				container = unique[i];
+				for(j = 0; j < text.length; j++){
+					if(container == text[j]){
+						counter += 1;
+					}
+				}
+				count.push(counter);
+			}
+			for(i = 0; i < unique.length; i++){
+				console.log("Number of occurences of letter " + unique[i] + " = " + count[i]);
+			}
+			for(i = 0; i < unique.length; i++){
+				txt += "Number of occurences of letter " + unique[i] + " = " + count[i] + "<br>";
+			}
+			document.getElementById("result").innerHTML = txt;
+		}
+	
+	</script>
+
+</head>
+<body>
+
+	<p>The program counts the number of occurrences of each letter in given text.</p>
+	<p>Please enter your text: <input type="text" id="input"></p>
+	<p><input type="button" value="Count" onclick="countLetter(document.getElementById('input').value)"></p>
+	<p id="result"></p>
+
+</body>
+</html>

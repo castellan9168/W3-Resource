@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Excersise 18</title>
+	
+	<!-- Write a function for searching JavaScript arrays with a binary search. -->
+	
+	<script>
+		
+		function sortNum(num){
+			var list = num.split(",");
+			for (i = 0; i < list.length; i++){
+				/* Converting string into numbers */
+				list[i] = parseInt(list[i]);
+			}
+			list.sort(function(a, b){return a-b});
+			return list;
+		}
+		
+		/*function searchRecr(x, key){
+			var lNum = sortNum(x);
+			var start = 0;
+			var end = lNum.length - 1;
+			function binarySearch(lNum, key, start, end){
+
+				var mid = Math.floor((end - start) / 2);
+				
+				if(lNum[mid] > key){
+					return binarySearch(lNum, key, start, mid - 1);
+				}
+				else if(lNum[mid] < key){
+					return binarySearch(lNum, key, mid + 1, end);
+				}
+				else{
+					return mid;
+				}
+			}
+		}*/
+		
+		function binarySearch(lNum, key){
+			/* Ta też coś nie dziła */
+			var mid = Math.floor(lNum.length / 2);
+			
+			if ( lNum[mid] == key){
+				return mid;
+			}
+			else if(lNum[mid] > key){
+				return binarySearch(lNum.slice(0, mid), key);
+			}
+			else if(lNum[mid] < key){
+				return binarySearch(lNum.slice(mid, lNum.length - 1), key);
+			}
+			else{
+				return null;
+			}
+		}
+		
+		function binaryInde
+		
+	
+	</script>
+	
+</head>
+<body>
+	
+	<p>This program searches a given set of numbers with binary search.</p>
+	<p>Please enter a set of numbers separated by comma (eg."1,4,5,2"): <input type="text" id="numbers"></p>
+	<p>Please choose a number from your set that you want to search: <input type="text" id="toSearch"></p>
+	<p><input type="button" value="Search" onclick="searchRecr(document.getElementById('numbers').value, 
+	document.getElementById('toSearch').value)"></p>
+	<p id="result"></p>
+	
+</body>
+</html>

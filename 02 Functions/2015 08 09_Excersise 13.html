@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Excersise 13</title>
+	
+	<script>
+		
+		function factors(x){
+			var i = 0;
+			var fcs = [];
+			for(i = 1; i <= (x / 2); i++){
+				if(x % i == 0){
+					fcs.push(i);
+				};
+			};
+			fcs.push(x);
+			document.getElementById("result").innerHTML = "Factors of a number " + x + ": " + fcs;
+		};
+		
+	</script>
+	
+</head>
+<body>
+
+	<p>The program returns factors of a given positive integer</p>
+	<p>Please enter the positive integer: <input type="number" id="findFactors"></p>
+	<p><input type="button" value="Find" onclick="factors(getElementById('findFactors').value)"></p>
+	<p id="result"></p>
+
+</body>
+</html>

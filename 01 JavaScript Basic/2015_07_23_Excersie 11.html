@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+	<title>Excersise 11</title>
+	
+	<script>
+		
+		function convertTemp(x) {
+			var temp = parseInt(x);
+			var tempCalc;
+			var celsius = document.getElementById("c");
+			var fahr = document.getElementById("f");
+			if (c.checked){
+				tempCalc = ((9 / 5) * temp) + 32 ;
+				document.getElementById("wynik").innerHTML = "Temperature in Fahrenheit degrees: " + tempCalc;
+			}
+			else if (f.checked){
+				tempCalc = (5 / 9) * (temp - 32);
+				document.getElementById("wynik").innerHTML = "Temperature in Celsius degrees: " + tempCalc;
+			}
+			else {
+				return false;
+			}
+		}
+		
+	</script>
+	
+</head>
+
+<body>
+	<p>Convert temperatures to and from Celsius, Fahrenheit.</p>
+	<p id="myForm>
+		<form name="units" method="post">
+			<input type="number" id="temp"><br>
+			Temperature given in:
+			<fieldset>
+				<input type="radio" name="Temperature" id="c" value="c" checked><label for="c">Celsius degrees</label>
+				<input type="radio" name="Temperature" id="f" value="f"><label for="f">Fahrenheit degrees</label>
+			</fieldset>
+			<input type="submit" value="Oblicz" onclick="convertTemp(document.getElementById('temp').value)">
+		<form>
+	</p>
+	<p id="wynik"></p>
+</body>
+
+</html>

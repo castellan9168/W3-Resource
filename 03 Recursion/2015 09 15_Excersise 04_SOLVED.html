@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Excersise 04</title>
+	
+	<!-- Write a JavaScript program to compute the sum of an array of integers. -->
+	
+</head>
+<body>
+	
+	<p>The program sums recursively elements of an array.</p>
+	<p>Open the JavaScript console to see the result.</p>
+	<p></p>
+
+</body>
+<script>
+	"use strict"
+	
+	function sum(arr){
+		if (arr.length == 1){
+			return arr[0];
+		}
+		else {
+			return arr.pop() + sum(arr);
+		}
+	};
+	
+	console.log(sum([1,2,3,4,5,6]));
+</script>
+</html>

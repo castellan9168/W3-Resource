@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title></title>
+	
+	<script>
+		
+		function coinList(x){
+			var coins = x.split(",");
+			for (i = 0; i < coins.length; i++){
+				coins[i] = parseInt(coins[i]);
+			};
+			return coins;
+		};
+		
+		function toCoins(k,j){
+			var myCoins = coinList(k);
+			var split = parseInt(j);
+			var output = [];
+			myCoins.sort(function(a,b){return b - a});
+			for(i = 0; i < myCoins.length; i++){
+				while( myCoins[i] <= split){
+					output.push(myCoins[i]);
+					split -= myCoins[i];
+				}
+			}
+			alert(output);
+		};
+	
+	</script>
+
+</head>
+<body>
+
+	<p>The program converts an amount to coins</p>
+	<p>Please enter the coins list separated by comma (eg. "1,5,10,15"): <input type="text" id="coins"></p>
+	<p>Please enter the amount that you would like to convert to coins: <input type="number" id="amount"></p>
+	<p><input type="button" value="Run" onclick="toCoins(document.getElementById('coins').value,
+	document.getElementById('amount').value)"></p>
+	<p id="result"></p>
+
+</body>
+</html>

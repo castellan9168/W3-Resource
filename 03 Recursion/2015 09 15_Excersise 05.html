@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Excersise 05</title>
+	
+	<!-- Write a JavaScript program to compute the exponent of a number. -->
+
+</head>
+<body>
+
+	<p>The program computes the exponent of a number</p>
+	<p></p>
+	<p></p>
+	<p></p>
+
+</body>
+<script>
+	"use strict"
+
+	function exponent(a, b){
+		if (b == 0){
+			return 1;
+		}
+		else {
+			return a * exponent(a, b - 1);
+		}
+	}
+	
+	console.log(exponent(2, 6));
+	
+</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Excersise 23</title>
+	
+	<!--  Write a JavaScript function to find the first not repeated character. -->
+	
+	<script>
+		"use strict"
+				
+		function findFirstUnrep(str){
+			str = str.toLowerCase().split(""); /*I remove uppercase letters and split text into letters*/
+			var unrepeated = "";
+			for(var i = 0; i < str.length; i++){
+				if(str[i] == " "){
+					str.splice(i, 1);
+				}
+			}
+			for(var i = 0; i < str.length; i++){
+				var counter = 0;
+				var container = str[i];
+				for(var j = 0; j < str.length; j++){
+					if(str[j] == container){
+						counter +=1;
+					}
+				}
+				if(counter == 1){
+					unrepeated = container;
+					break;
+				}
+			}
+			if(unrepeated == ""){
+				document.getElementById("result").innerHTML = "There is no unique character in given text.";
+				console.log("There is no unique character in given text.");
+			}
+			else{
+				document.getElementById("result").innerHTML = "The first not repeated character is " + unrepeated;
+				console.log(unrepeated);
+			}
+		}
+	</script>
+
+</head>
+<body>
+
+	<p>The program finds the first not repeated character.</p>
+	<p>Please enter your text: <input type="text" id="input"></p>
+	<p><input type="button" value="Search" onclick="findFirstUnrep(document.getElementById('input').value)"></p>
+	<p id="result"></p>
+	
+</body>
+</html>

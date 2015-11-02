@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Excersise 01</title>
+	
+	<script>
+		
+		function numReverse(x){
+			var z = x.split("");
+			var r = z.reverse();
+			var result = parseInt(r.join(""));
+			document.getElementById("result").innerHTML = "You number reversed = " + result;
+		}
+		
+	</script>
+
+</head>
+
+<body>
+	<p>Enter the number that will be reversed by a program.</p>
+	<p><input type="number" id="numRev"></p>
+	<p><input type="button" value="Reverse" onclick="numReverse(document.getElementById('numRev').value)"></p>
+	<p id="result"></p>
+</body>
+</html>

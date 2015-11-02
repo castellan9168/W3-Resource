@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Excersise 29</title>
+	
+	<script>
+		"use strict"
+	
+		function giveMeMyName(){
+			console.log("Obecna!");
+			document.getElementById("result").innerHTML = "You run the function named: " + giveMeMyName.name;
+		}
+		
+	</script>
+
+</head>
+<body>
+
+	<p>The program gets the function name run by the button "Run" below.</p>
+	<p><input type="button" value="Run" onclick="giveMeMyName()"></p>
+	<p id="result"></p>
+	
+</body>
+</html>

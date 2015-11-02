@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Excersise 03</title>
+	
+	<!-- Działa, ale podejrzałem rozwiązanie w necie -->
+	
+	<script>
+		"use strict"
+		
+		function combinations(x) {
+			var list = x.split("");
+			var results = [];
+			/* Loop removes spaces between words */
+			for (var i = 0; i < list.length; i++){
+				if(list[i] == " "){
+					list.splice(i,1);
+				}
+			}
+			console.log("After removing spaces: " + list);
+			/* Loop removes repeating numbers in a list */
+			for (var i = 0; i < list.length; i++){
+				var container = list[i];
+				for(var j = i + 1; j < list.length; j++){
+					if(list[j] == container){
+						list.splice(j,1);
+					}
+				}
+			}
+			console.log("After removing repeating numbers: " + list);
+			/* Now we will find all combinations of a string */
+			for (var i = 0; i < list.length; i++){
+				var resultsLength = results.length;
+				for (var j = 0; j < resultsLength; j++){
+					results.push(list[i] + results[j]);
+				}
+				results.push(list[i]);
+				console.log("Przejście " + i + ": " + results);
+			}
+		}
+		
+	</script>
+
+</head>
+<body>
+
+	<p>The program generates all combinations of a string.</p>
+	<p>Please enter a string: <input type="text" id="combine"></p>
+	<p><input type="button" value="Generate" onclick="combinations(document.getElementById('combine').value)"></p>
+	<p id="result"></p>
+
+</body>
+</html>

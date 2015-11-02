@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Excersise 24</title>
+	
+	<!-- Write a JavaScript function to apply Bubble Sort algorithm. -->
+	
+	<!-- 
+		Moje rozwiązanie jest słabe, bo pod koniec jak już lista jest posortowana to robi kilka niepotrzebnych pętli
+		ale już rozumiem na czym polega to rozwiązanie z zmienną BOOLEAN = false.
+	-->
+	
+	<script>
+		"use strict"
+		
+		function bubbleSort(arr){
+			var n = arr.length;
+			var txt = "";
+			console.log("Obecna!");
+			var list = arr.split(",");
+			for(var i = 0; i < list.length; i++){
+				list[i] = parseInt(list[i]);
+			}
+			console.log(list);
+			do{
+				for(var i = 1; i < list.length; i++){
+					if(list[i - 1] > list[i]){
+						var t = list[i];
+						list[i] = list[i - 1];
+						list[i - 1] = t;
+						console.log(list);
+					}
+					txt += "Przejście " + i + ": " + list + "<br>"; 
+				}
+				n -= 1;
+			} while(n > 1);
+			txt += "Posortowana lista: " + list;
+			document.getElementById("result").innerHTML = txt;
+		}
+		
+	</script>
+
+</head>
+<body>
+
+	<p>The program sorts the entered set of numbers with Bubble Sort algorithm.</p>
+	<p>Please enter your set of numbers (e.g.: "1,43,5,214"): <input type="text" id="input"></p>
+	<p><input type="button" value="Sort" onclick="bubbleSort(document.getElementById('input').value)"></p>
+	<p id="result"></p>
+
+</body>
+</html>

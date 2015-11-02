@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Excersise 01</title>
+	
+	<!-- Write a JavaScript program that accept two integers and display the larger. -->
+	
+</head>
+<body>
+	
+	<p>The program returns larger integer from the given two.</p>
+	<p>Please enter the first number: <input type="number" id="first"> and the second number: <input type="number" id="second"></p>
+	<p><input type="button" value="Run" onclick="findLarger(document.getElementById('first').value, document.getElementById('second').value)"></p>
+	<p id="result"></p>
+	
+</body>
+<script>
+	"use strict"
+	
+	function findLarger(a, b){
+		a = parseInt(a);
+		b = parseInt(b);
+		if(a > b){
+			document.getElementById("result").innerHTML = a;
+			return a;
+		}
+		else{
+			document.getElementById("result").innerHTML = b;
+			return b;
+		}
+	}
+
+
+</script>
+</html>

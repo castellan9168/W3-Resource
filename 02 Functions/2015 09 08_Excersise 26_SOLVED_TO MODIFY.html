@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Excersise 26</title>
+	
+	<!-- To jest raczej dobrze napisane, dostaję takie same wyniki na słowach z przykłau w necie
+	http://www.w3resource.com/javascript-exercises/javascript-function-exercise-26.php Ale jescze nie jestem pewien optymalności tego
+	rozwiązania. Jak ten najdłuższy tekst znaleźć, jeśli okaże się że on nam wyjdzie w ostatnim przejściu.-->
+	
+	<script>
+		"use strict"
+		
+		function findLongestNotRep(arr){
+			var list = arr.split(""), result = [], container = [], longest = "";
+			for (var i = 0; i < list.length; i++){
+				/* Check if an alement is already in container array. If not, add it to an array */
+				if (container.indexOf(list[i]) == -1){
+					container.push(list[i]);
+				}
+				/* If a character is already in an array, we dump the current container to the result array, if it is longer
+				and move further in search */
+				else{
+					if (container.length > result.length){
+						result.length = 0;
+						for (var j = 0; j < container.length; j++){
+							result.push(container[j]);
+						}
+					}
+					container.splice(0, container.indexOf(list[i]) + 1);
+					container.push(list[i]);
+				}
+				/*console.log(container + " and " + result);*/
+			}
+			if (container.length > result.length){
+				result.length = 0;
+				for (var j = 0; j < container.length; j++){
+					result.push(container[j]);
+				}
+			}
+			longest = result.join("");
+			console.log(longest);
+			/*console.log(container + " and " + result);*/
+		}
+	
+	</script>
+
+</head>
+<body>
+
+	<p>The program finds the longest word without repeating characters in a given text.</p>
+	<p>Please enter your text: <input type="text" id="toSearchThrough"></p>
+	<p><input type="button" value="Search" onclick="findLongestNotRep(document.getElementById('toSearchThrough').value)"></p>
+	<p id="result"></p>
+
+</body>
+</html>

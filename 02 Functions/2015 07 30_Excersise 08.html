@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Excersise 08</title>
+	
+	<script>
+	
+		function ifPrime(x){
+			if( x % 2 == 0 && x!=2 ){
+				document.getElementById("result").innerHTML = x + " is not a prime number."
+			}
+			else if( x == 1 ){
+				document.getElementById("result").innerHTML = x + " is not a prime number."
+			}
+			else {
+				var i = 2;
+				var prime = true;
+				while ( i < Math.floor(x / 2)){
+					if(x % i == 0){
+						prime = false;
+						break;
+					}
+					else{
+						prime = true;
+						i++;
+					}
+				}
+				if(prime == true){
+					document.getElementById("result").innerHTML = x + " is a prime number.";
+				}
+				else{
+					document.getElementById("result").innerHTML = x + " is not a prime number.";
+				}
+			}
+		}
+		
+	</script>
+	
+</head>
+<body>
+	
+	<p></p>
+	<p>Please enter the number to check: <input type="number" id="prime"></p>
+	<p><input type="button" value="check" onclick="ifPrime(document.getElementById('prime').value)"></p>
+	<p id="result"></p>
+	
+</body>
+</html>

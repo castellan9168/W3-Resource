@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Excersise 01</title>
+	
+</head>
+<body>
+	
+	<p>The program calculates the factorial of a specivied natural integer.</p>
+	<p>Please enter the number: <input type="number" id="toCount"></p>
+	<p><input type="button" value="Calculate" onclick="factorial(document.getElementById('toCount').value)"></p>
+	<p id="result"></p>
+
+</body>
+<script>
+		"use strict"
+		
+		function factorial(n){
+			if (n == 1){
+				return 1;
+			}
+			var fact = n * factorial(n-1);
+			document.getElementById("result").innerHTML = fact;
+			console.log(fact);
+			return fact;
+		}
+	
+</script>
+</html>

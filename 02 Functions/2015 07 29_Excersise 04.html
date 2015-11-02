@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Excersise 04</title>
+	
+	<script>
+		
+		function order(x){
+			t = x.toLowerCase().split("").sort();
+			document.getElementById("result").innerHTML = t;
+		}
+	
+	</script>
+	
+</head>
+<body>
+	<p>This program sorts letters of given text in alphabetical order.</p>
+	<p>Please enter the text: <input type="text" id="toSort"></p>
+	<p><input type="button" value="sort" onclick="order(document.getElementById('toSort').value)"></p>
+	<p id="result"></p>
+</body>
+</html>

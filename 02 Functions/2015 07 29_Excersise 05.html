@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+<title>
+
+	<title>Excersise 05</title>
+	
+	<script>
+		"use strict"
+	
+		function upperCase(x){
+			var t = x.split(" ");
+			var upped = "";
+			for (var i = 0; i < t.length; i++){
+				var upper = t[i].charAt(0).toUpperCase();
+				var changed = t[i].replace(t[i].charAt(0), upper);
+				upped += " " + changed;
+				console.log(upper + ", " + changed);
+			}
+			document.getElementById("result").innerHTML = upped;
+		}
+		
+	</script>
+
+</head>	
+<body>
+
+	<p>The program converts the first letter of each word in uppercase.</p>
+	<p>Please enter the text to convert: <input type="text" id="convert"></p>
+	<p><input type="button" value="Convert" onclick="upperCase(document.getElementById('convert').value)"></p>
+	<p id="result"></p>
+	
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Excersise 09</title>
+	
+	<!-- To chyba jest trudne i długie, zostawiam na weekend -->
+
+</head>
+<body>
+	
+	<p>The programs perform merge sort program on a given array.</p>
+	<p>Please open JavaScript console to see the solution.</p>
+	<p></p>
+	<p></p>
+	
+</body>
+<script>
+	"use strict"
+	
+	function mergeSort(arr){
+		var left = [], right = [], middle = Math.floor(arr.length / 2);
+		if(arr.length == 1){
+			return arr;
+		}
+		else{
+			for(var i = 0; i < middle; i++){
+				left.push(arr[i]);
+			}
+			for(var i = middle; i < arr.length - 1; i++){
+				right.push(arr[i]);
+			}
+			return mergeSort(left) + mergeSort(right);
+		}
+	}
+	
+	function merge(left, right){
+	
+	}
+	
+</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Excersise 19</title>
+	
+	<script>
+		
+		function findLarger(arr, key){
+			"use strict";
+			console.log("Obecna!");
+			var numbers = arr.split(",");
+			var keyInt = parseInt(key);
+			var larger = [];
+			for(var i = 0; i < numbers.length; i++){
+				numbers[i] = parseInt(numbers[i]);
+			}
+			for(var i = 0; i < numbers.length; i++){
+				if(numbers[i] > keyInt && larger.indexOf(numbers[i]) == -1){
+					larger.push(numbers[i]);
+				}
+			}
+			console.log("Numbers larger than " + keyInt + " are: " + larger);
+		}
+	
+	</script>
+
+</head>
+<body>
+
+	<p>The program finds numbers larger than a specified number in a given set.</p>
+	<p>Please specify your set of numbers separated by a comma(eg."1, 2, 3, 4"): <input type="text" id="set"></p>
+	<p>Please specify a key number from your set above: <input type="number" id="keynum"></p>
+	<p><input type="button" value="Find" onclick="findLarger(document.getElementById('set').value,
+	document.getElementById('keynum').value)"></p>
+	<p id="result"></p>
+
+</body>
+</html>

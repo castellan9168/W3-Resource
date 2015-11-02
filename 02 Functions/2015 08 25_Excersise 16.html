@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Excersise 16</title>
+	
+	<!-- To jest raczej dobrze rozwiązane, ciekawe czy da się to zrobić wydajniej -->
+	
+	<script>
+		
+		function findUnique(s){
+			var text = s.split("");
+			var container;
+			for (i = 0; i < text.length; i++){
+				/* Petla usuwa spacje z tekstu */
+				if(text[i] == " "){
+					text.splice(i, 1);
+				}
+			}
+			console.log("After removing spaces: " + text);
+			for (i = 0;  i < text.length; i++){
+				container = text[i];
+				for(j = i + 1; j < text.length; j++){
+					if( container == text[j]){
+						text.splice(j, 1);
+					}
+				}
+			}
+			console.log("Unique characters extracted: " + text);
+			document.getElementById("result").innerHTML = "Unique characters extracted: " + text;
+		}
+		
+	</script>
+	
+</head>
+<body>
+	
+	<p>The program extracts unique characters from a string.</p>
+	<p>Please enter your string: <input type="text" id="extract"></p>
+	<p><input type="button" value="Extract" onclick="findUnique(document.getElementById('extract').value)"></p>
+	<p id="result"></p>
+
+</body>
+</html>

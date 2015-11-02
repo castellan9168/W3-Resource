@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<!-- Możnaby to zrobić sporo lepiej i bardziej prawidłowo. Teraz jak wpompowuje wartości w tabelę, to nie sprawdzam czy
+		w  danym rzędzie są nagłówki czy dane, żeby to jednak wszystko odróżnić.-->
+	
+		<title>Excersise 06</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/bootstrap-theme.css" rel="stylesheet">
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media 
+		queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page 
+		via file:// -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/
+		html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/
+		respond.min.js"></script>
+		<![endif]-->
+		
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<h6 class="text-primary"><small>Conditional statements and loops</small> Excersise 06 </h6>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6">
+					<p>The program calculates average </p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-3">
+					<table class="table" id="myTable">
+						<thead>
+							<tr>
+								<th>Student name</th>
+								<th>Grades</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>David</td>
+								<td>80</td>
+							</tr>
+							<tr>
+								<td>Vinoth</td>
+								<td>77</td>
+							</tr>
+							<tr>
+								<td>Divya</td>
+								<td>88</td>
+							</tr>
+							<tr>
+								<td>Ishitha</td>
+								<td>95</td>
+							</tr>
+							<tr>
+								<td>Thomas</td>
+								<td>68</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://code.jquery.com/jquery.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files 
+		as needed -->
+			
+		<script src="js/bootstrap.min.js">
+			
+		</script>
+	</body>
+	<script>
+			"use strict"
+			
+			var grades = [], 							   // array to contain grades of students
+				marks = ["Marks"],								   // array to contain marks of students
+				data = document.getElementById("myTable"), // gets table
+				rowLength = data.rows.length, 			   // gets rows of table
+				average = 0, 							   // here we will calculate the average
+				i;
+			
+			// loops through rows
+			for (i = 1; i < rowLength; i++){
+				// gets cells of current row
+				var oCells = data.rows.item(i).cells;
+				
+				// gets amount of cells of current row
+				var cellLength = oCells.length;
+				
+				//loops through each cell in current row
+				for (var j = 0; j < cellLength; j++){
+					// get your cell info here
+					if(j == 1){
+						grades.push(oCells.item(j).innerHTML);
+					}
+				}
+			}
+			for(i = 0; i < grades.length; i++){
+				grades[i] = parseInt(grades[i]);
+				average += grades[i];
+			}
+			average /= grades.length;
+			console.log(average);
+			// I check whether the mark is above or below the average mark and I add column with grades to the table
+			
+			for (var i = 0; i < grades.length; i++){
+				if (grades[i] < 60){
+					marks.push("F");
+				}
+				else if (grades[i] < 70 && grades[i] >= 60){
+					marks.push("D");
+				}
+				else if (grades[i] < 80 && grades[i] >= 70){
+					marks.push("C");
+				}
+				else if(grades[i] < 90 && grades[i] >= 80){
+					marks.push("B");
+				}
+				else{
+					marks.push("A");
+				}
+			}
+			
+			function createCell(cell, text){
+				var td = document.createElement('td'), 	 // create TR elements
+					txt = document.createTextNode(text); // create text node
+				td.appendChild(txt);					 // append text node to the TR
+				cell.appendChild(td);					 // append TR to the table cell
+			}
+			
+			function appendColumn(){
+				console.log("Obecna!");
+				var tbl = document.getElementById("myTable"), // table reference
+					i;
+				//console.log(tbl);
+				for (i = 0; i < tbl.rows.length; i++){
+					var row = tbl.rows[i];
+					//console.log(row);
+					createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length), marks[i]);
+				}
+			}
+			
+			appendColumn();
+			
+		</script>
+</html>

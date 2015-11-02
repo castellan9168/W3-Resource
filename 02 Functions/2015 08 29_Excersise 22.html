@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Excersise 22</title>
+	
+	<!-- Write a JavaScript function that accepts two arguments, a string and a letter and
+	the function will count the number of occurrences of the specified letter within the string. -->
+	
+	<!-- Ale ciekawe jak zmodyfikować tę funkcję RegExpem żeby znajdywała litery duże i małe. -->
+	
+	<script>
+		"use strict"
+		
+		function letterCount(str, letter){
+			/*str = str.split("");*/
+			var counter = 0;
+			for(var i = 0; i < str.length; i++){
+				if(str.charAt(i) == letter){
+					counter += 1;
+				}
+			}
+			console.log(counter);
+		}
+	
+	</script>
+
+</head>
+<body>
+
+	<p>The program counts number of occurences of a specified letter in a given text.</p>
+	<p>Please enter your text: <input type="text" id="input"></p>
+	<p>Please specify the letter from your text to bo counted: <input type="text" id="toCount"></p>
+	<p><input type="button" value="Count" onclick="letterCount(document.getElementById('input').value,
+	document.getElementById('toCount').value)"></p>
+	<p id="result"></p>
+
+</body>
+</html>

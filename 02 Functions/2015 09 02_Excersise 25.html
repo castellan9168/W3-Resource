@@ -1,0 +1,40 @@
+<DOCTYPE html>
+<html>
+<head>
+
+	<title>Excersise 25</title>
+	
+	<!-- Write a JavaScript function that accept a list of country names as input
+	and returns the longest country name as output. -->
+	
+	<!-- Możnaby rozbudować ten przykład tak, żeby podawał wszystkie najdłuższe nazwy krajów, i to rozbudowanie
+	wcale nie musi być takie banalne-->
+	
+	<script>
+		"use strict"
+		
+		function findLongest(arr){
+			var list = arr.split(",");
+			var container = list[0];
+			console.log(container);
+			for(var i = 1; i < list.length; i++){
+				if(container.length < list[i].length){
+					container = list[i];
+				}
+			}
+			console.log(container);
+		}
+	
+	</script>
+
+</head>
+<body>
+	
+	<p>The program finds the longest country name from a given list.</p>
+	<p>Please enter the list of country names separated by comma(e.g.:"Poland,Australia,Germany
+	,etc."): <input type="text" id="countries"></p>
+	<p><input type="button" value="Find" onclick="findLongest(document.getElementById('countries').value)"></p>
+	<p id="result"></p>
+	
+</body>
+</html>

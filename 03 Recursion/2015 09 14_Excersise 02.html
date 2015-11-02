@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Excersise 02</title>
+	
+	<!-- Write a JavaScript program to find the greatest common divisor (gcd) of two positive numbers. -->
+
+</head>
+<body>
+	
+	<p>The program finds the greatest common divisor of two positive integers.</p>
+	<p>Please enter the first number:<input type="number" id="first">, and the second number: <input type="number" id="second"></p>
+	<p><input type="button" value="Run" onclick="gcd(document.getElementById('first').value,
+	document.getElementById('second').value)"></p>
+	<p id="result"></p> 
+
+</body>
+<script>
+	"use strict"
+	
+	function gcd(a, b){
+		/* zapis "!b" mówi "jeżeli nie b", czyli inaczej rzecz biorąc, jeżeli b jest równe 0*/
+		if (!b){
+			return a;
+		}
+		return gcd(b, a % b);
+	}
+	
+	console.log(gcd(36, 12));
+	
+</script>
+</html>
